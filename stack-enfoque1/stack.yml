@@ -1,0 +1,17 @@
+services:
+  app:
+    image: alpine
+    command: sleep 3600
+    secrets:
+      - source: cluster_secret
+        target: mi_secret.txt
+    configs:
+      - source: cluster_config
+        target: /etc/app.conf
+
+secrets:
+  cluster_secret:
+    external: true
+configs:
+  cluster_config:
+    external: true
