@@ -1,0 +1,17 @@
+services:
+  app:
+    image: alpine
+    command: sleep 3600
+    secrets:
+      - source: stack_secret
+        target: mi_secret.txt
+    configs:
+      - source: stack_config
+        target: /etc/app.conf
+
+secrets:
+  stack_secret:
+    file: ./secret_local.txt
+configs:
+  stack_config:
+    file: ./config_local.conf

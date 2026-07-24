@@ -1,0 +1,13 @@
+services:
+  app:
+    image: alpine
+    command: sleep 3600
+    configs:
+      - source: app_config_v2
+        target: /etc/app.conf
+
+configs:
+  app_config_v1:
+    file: ./app.v1.conf
+  app_config_v2:
+    file: ./app.v2.conf
